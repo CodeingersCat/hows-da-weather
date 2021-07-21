@@ -344,7 +344,7 @@ const putData = () => {
   console.log("HEY")
   city = srch.value;
   var API =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&units=metric&appid=" +
     key;
