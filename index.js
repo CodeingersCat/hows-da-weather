@@ -279,9 +279,9 @@ var weatherSection = document.getElementsByClassName("weather-data")[0];
 var blankPage = document.getElementsByClassName("blank")[0];
 var ic = document.querySelector("i");
 var fic = document.getElementsByClassName("f-icon");
-var article1 = document.getElementsByClassName("one")[1];
-var article2 = document.getElementsByClassName("two")[1];
-var article3 = document.getElementsByClassName("three")[1];
+var article1 = document.getElementsByClassName("one")[0];
+var article2 = document.getElementsByClassName("two")[0];
+var article3 = document.getElementsByClassName("three")[0];
 var img1 = document.getElementsByClassName("one")[0].childNodes[1];
 var img2 = document.getElementsByClassName("two")[0].childNodes[1];
 var img3 = document.getElementsByClassName("three")[0].childNodes[1];
@@ -313,17 +313,18 @@ const frontPage = () => {
     .then(res => res.json()
     )
     .then(data => {
+      console.log(article1);
       h2.innerText = "Articles for you";
       article1.setAttribute("href", data.value[0].url);
-      article1.innerHTML = data.value[0].title;     
+      article1.childNodes[3].innerHTML = data.value[0].title;     
       img1.setAttribute("src", data.value[0].image.url) 
-
+      
       article2.setAttribute("href", data.value[1].url);
-      article2.innerHTML = data.value[1].title;
+      article2.childNodes[3].innerHTML = data.value[1].title;
       img2.setAttribute("src", data.value[1].image.url) 
 
       article3.setAttribute("href", data.value[2].url);
-      article3.innerHTML = data.value[2].title;
+      article3.childNodes[3].innerHTML = data.value[2].title;
       img3.setAttribute("src", data.value[2].image.url) 
       // document.getElementsByClassName('li')[0].innerHTML = "YOLO";
     // document.getElementsByClassName('li')[1].innerHTML = "YOLO";
