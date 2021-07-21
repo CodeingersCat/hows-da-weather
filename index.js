@@ -1,5 +1,10 @@
+//add this line 
 import { key, news_key } from "./secret.js";
 import countries from "./countries.js";
+
+// require('dotenv').config();
+// const key = process.env.WEATHER_API;
+// const news_key = process.env.NEWS_API;
 
 var logo = document.querySelector("h1");
 var srchArea = document.getElementsByClassName("search-div")[0];
