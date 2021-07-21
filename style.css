@@ -406,10 +406,10 @@ i {
   font-size: 2rem;
 }
 
-.footer {
+.footer{
   font-family: "Merienda One", cursive;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center ;
@@ -428,10 +428,13 @@ i {
   justify-content: center;
 }
 
-.fab{
-  font-size: 1.5rem;
+i{
+  font-size: 1.8rem;
+  font-family: 'FontAwesome';
+  text-decoration: none;
+  font-style: normal; 
 }
 
 .git, .tweet{
-  margin-left: 2%;
+  margin-left: 4%;
 }

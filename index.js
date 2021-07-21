@@ -52,7 +52,6 @@ window.onload = () => {
     .then(res => res.json()
     )
     .then(data => {
-      console.log(data);
       h2.innerText = "Articles for you"
 
       article1.setAttribute("href", data.value[0].url);
@@ -71,7 +70,8 @@ window.onload = () => {
     // document.getElementsByClassName('li')[2].innerHTML = "YOLO";
     })
     .catch((err) => {
-      console.log("error: ", err);
+      blankPage.style.display = "none";
+      h2.innerHTML = "ERROR :( \nIf you're reading this while using a working internet connection, please <a href='mailto:shrawansb2000@gmail.com'><u>let me know .</u></a>"
     });
 };
 
@@ -162,8 +162,10 @@ const putData = () => {
         });
     })
     .catch((err) => {
-      console.log(err);
-    });
+      console.log(err)
+      blankPage.style.display = "none";
+      h2.innerHTML = "ERROR :( \nIf you're reading this while using a working internet connection, please <a href='mailto:shrawansb2000@gmail.com'><u>let me know .</u></a>"
+    })
 };
 
 srchBtn.addEventListener("click", () => {
@@ -171,7 +173,10 @@ srchBtn.addEventListener("click", () => {
 });
 
 srchArea.addEventListener("keydown", (e) => {
-  if (e.keyCode === 13) putData();
+  if (e.keyCode === 13){
+    h2.style.display = "block";
+    putData();
+  }
 });
 
 logo.addEventListener("click", () => {
