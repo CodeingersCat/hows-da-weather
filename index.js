@@ -305,7 +305,6 @@ const frontPage = () => {
     .then(res => res.json()
     )
     .then(data => {
-      console.log(article1);
       h2.innerText = "Articles for you";
       article1.setAttribute("href", data.value[0].url);
       article1.childNodes[3].innerHTML = data.value[0].title;     
@@ -335,13 +334,11 @@ window.onload = () => {
 };
 
 const putData = () => {
-  console.log("HEY")
   city = srch.value;
 
   fetch(API+"/weather?q="+city)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data)
       if(data.cod == 429){
         while(data.cod != 429)
           putData();
