@@ -2,8 +2,6 @@
 // import { key, news_key } from "./secret.js";
 // import countries from "./countries.js";
 
-const key = "c9147f9b3dd6888e35b431bbd7127b7a"
-const news_key = "1a2ec458b5msh06d25b479a02809p102071jsn0a4611d36fa6"
 const countries = {
   "AF": "Afghanistan",
   "AX": "Aland Islands",
@@ -300,16 +298,10 @@ blankPage.style.display = "flex";
 top_date.style.display = "none";
 top_loc.style.display = "none";
 
+var API = "https://rain-chek.herokuapp.com" 
+
 const frontPage = () => {
-  var options = {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-key": news_key,
-      "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
-    }
-  };
-  var API = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=climate&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null"
-  fetch(API, options)
+  fetch(API+"/news")
     .then(res => res.json()
     )
     .then(data => {
@@ -331,6 +323,7 @@ const frontPage = () => {
     // document.getElementsByClassName('li')[2].innerHTML = "YOLO";
     })
     .catch((err) => {
+      console.log(err)
       blankPage.style.display = "none";
       h2.innerHTML = "ERROR :( \nIf you're reading this while using a working internet connection, please <a href='mailto:shrawansb2000@gmail.com'><u>let me know .</u></a>"
     });
@@ -344,13 +337,8 @@ window.onload = () => {
 const putData = () => {
   console.log("HEY")
   city = srch.value;
-  var API =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&units=metric&appid=" +
-    key;
 
-  fetch(API)
+  fetch(API+"/weather?q="+city)
     .then((res) => res.json())
     .then((data) => {
       console.log(data)
@@ -365,15 +353,6 @@ const putData = () => {
           top_date.style.display = "block";
           top_loc.style.display = "block";
           weatherSection.style.display = "flex";
-          var forecastAPI =
-            "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-            data.coord.lat +
-            "&lon=" +
-            data.coord.lon +
-            "&exclude=current, minutely, hourly" +
-            "&appid=" +
-            key +
-            "&units=metric";
 
           var prefix = "wi wi-owm-";
           var id = data.weather[0].id;
@@ -396,7 +375,7 @@ const putData = () => {
           document.getElementsByClassName("date")[0].innerHTML =
             Date(date).split("G")[0];
 
-          fetch(forecastAPI)
+          fetch(API+"/forecast?q="+city)
             .then((res) => res.json())
             .then((data) => {
               var prefix = "wi wi-owm-";
