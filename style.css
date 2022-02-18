@@ -22,9 +22,12 @@ body {
 }
 
 .logo {
-  cursor: pointer;
   padding-top: 10%;
   padding-bottom: 10%;
+}
+
+#home{
+  cursor: pointer;
 }
 
 .blank {

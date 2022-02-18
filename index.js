@@ -260,7 +260,7 @@ const countries = {
 // const key = process.env.WEATHER_API;
 // const news_key = process.env.NEWS_API;
 
-var logo = document.querySelector("h1");
+var home = document.getElementById("home");
 var srchArea = document.getElementsByClassName("search-div")[0];
 var srch = document.getElementById("srch-text");
 var srchBtn = document.getElementById("search-button");
@@ -437,7 +437,7 @@ srchArea.addEventListener("keydown", (e) => {
   }
 });
 
-logo.addEventListener("click", () => {
+home.addEventListener("click", () => {
   blankPage.style.display = "flex";
   weatherSection.style.display = "none";
   top_loc.style.display = "none";
