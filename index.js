@@ -298,7 +298,7 @@ blankPage.style.display = "flex";
 top_date.style.display = "none";
 top_loc.style.display = "none";
 
-var API = "https://rain-chek.herokuapp.com" 
+var API = "https://weather-zbsa.onrender.com" 
 
 const frontPage = () => {
   fetch(API+"/news")
